@@ -1,7 +1,7 @@
 img{
     height: 150px;
 }
-.description{
+.desciption{
     font-size: 20px;
 }
 #cook-time{
@@ -13,9 +13,9 @@ img{
 .time{
     color: gray;
 }
-h1, h2, p, li{
-    font-family: Helvetica;
-}
 .external-link{
     color: SeaGreen;
+}
+h1, h2, p, li{
+    font-family: Helvetica;
 }
