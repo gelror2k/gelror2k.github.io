@@ -14,7 +14,8 @@ body{
     margin-left: auto;
     margin-right: auto;     
     font-size: 24px;
-    text-align: left;
+    text-align: left;   
+    line-height: 1.5;
 }
 .Header{
     font-family: 'Arial', sans-serif;
@@ -38,8 +39,8 @@ nav a {
     border-radius: 5px;
 }
 .Spotify{
-    width: 100;
-    height: 300;
+    width: 120;
+    height: 350;
     border-radius: 12px;
     border: none;
 }
