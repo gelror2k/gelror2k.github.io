@@ -2,8 +2,8 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f5f7fa; /* Light fallback background color */
-    background: linear-gradient(to right, #ffecd2, #fcb69f); /* Soft gradient background */
+    background: #f5f7fa; 
+    background: linear-gradient(to right, #ffecd2, #fcb69f); 
     color: #333;
     line-height: 1.6;
 }
