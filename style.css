@@ -32,16 +32,15 @@ main {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
-h1, h2 {
+h1 {
     color: #007bff;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 p {
     margin-bottom: 20px;
 }
-
+    
 iframe.Spotify {
     width: 100%;
     height: 80px;
@@ -51,8 +50,32 @@ iframe.Spotify {
 
 .Header {
     margin-top: 30px;
+    text-align: center; 
+    font-family: Arial, sans-serif; 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: #007bff; 
+    padding: 10px; 
+    border-bottom: 2px solid #ddd; 
 }
 
 .First {
     text-align: justify;
+}
+.section {
+    margin: 20px 0; /* Separates sections visually */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.section h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.section p {
+    margin: 10px 0 0;
+    line-height: 1.6;
 }
