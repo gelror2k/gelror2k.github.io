@@ -1,9 +1,6 @@
-// Replace with your API key from TheSportsDB
-const apiKey = '3';
-
-// Function to fetch all football teams from TheSportsDB
-async function fetchRandomTeam() {
-    const url = `https://www.thesportsdb.com/api/v1/json/${apiKey}/all_teams.php`;
+// Function to fetch a random meal from TheMealDB API
+async function fetchRandomMeal() {
+    const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
 
     try {
         const response = await fetch(url);
@@ -14,46 +11,34 @@ async function fetchRandomTeam() {
         }
 
         const data = await response.json();
-        
-        // Log the response to check its content
-        console.log(data);
 
-        if (!data.teams || data.teams.length === 0) {
-            document.getElementById('teams-list').innerHTML = 'No teams found.';
+        // Check if a meal is returned
+        if (!data.meals) {
+            document.getElementById('meal-list').innerHTML = 'No meals found.';
             return;
         }
 
-        // Get a random team from the teams list
-        const randomTeam = getRandomTeam(data.teams);
-        displayTeam(randomTeam);
+        // Display the meal
+        displayMeal(data.meals[0]);
     } catch (error) {
         console.error('Error fetching data:', error);
-        document.getElementById('teams-list').innerHTML = `Error: ${error.message}`;
+        document.getElementById('meal-list').innerHTML = `Error: ${error.message}`;
     }
 }
 
-// Function to get a random team from the array of teams
-function getRandomTeam(teams) {
-    const randomIndex = Math.floor(Math.random() * teams.length);
-    return teams[randomIndex];
-}
+// Function to display the meal
+function displayMeal(meal) {
+    const mealList = document.getElementById('meal-list');
+    mealList.innerHTML = ''; // Clear previous results
 
-// Function to display the team on the webpage
-function displayTeam(team) {
-    const teamsList = document.getElementById('teams-list');
-    teamsList.innerHTML = ''; // Clear any previous content
-
-    const teamCard = document.createElement('div');
-    teamCard.classList.add('team-card');
-    teamCard.innerHTML = `
-        <h3>${team.strTeam}</h3>
-        <img src="${team.strTeamLogo}" alt="${team.strTeam}" />
-        <p><strong>Stadium:</strong> ${team.strStadium}</p>
-        <p><strong>Founded:</strong> ${team.intFormedYear}</p>
-        <p><strong>Country:</strong> ${team.strCountry}</p>
+    const mealCard = document.createElement('div');
+    mealCard.classList.add('meal-card');
+    mealCard.innerHTML = `
+        <h3>${meal.strMeal}</h3>
+        <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+        <p><strong>Category:</strong> ${meal.strCategory}</p>
+        <p><strong>Area:</strong> ${meal.strArea}</p>
+        <a href="${meal.strSource}" target="_blank">Recipe Link</a>
     `;
-    teamsList.appendChild(teamCard);
+    mealList.appendChild(mealCard);
 }
-
-// Attach the fetch function to the button
-document.getElementById('random-button').addEventListener('click', fetchRandomTeam);
