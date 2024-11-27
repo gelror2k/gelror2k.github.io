@@ -1,48 +1,43 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
     padding: 20px;
 }
-
-h1 {
+#meal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.meal-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 250px;
     text-align: center;
 }
-
-nav {
-    background-color: #2c3e50;
-    padding: 1rem;
-    text-align: center;
+.meal-card img {
+    width: 100%;
+    height: auto; 
+    max-width: 250px; 
+    border-radius: 10px;
 }
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.4rem;
+.meal-card h3 {
+    font-size: 1.5rem;
+    color: #333;
 }
-
-nav a:hover {
-    color: #f39c12;
-    background-color: #34495e;
-    border-radius: 5px;
+.meal-card p {
+    color: #555;
+    font-size: 1rem;
 }
-
-/* Section styling */
-section {
-    margin-top: 20px;
-}
-
-ul {
+.ingredients-list {
+    margin-top: 10px;
     list-style-type: none;
     padding: 0;
 }
-
-li {
-    background-color: #f4f4f4;
-    margin: 10px;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-li:hover {
-    background-color: #e3e3e3;
+.ingredients-list li {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #333;
 }

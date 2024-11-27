@@ -1,24 +1,20 @@
-// Function to fetch a random meal from TheMealDB API
 async function fetchRandomMeal() {
     const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
 
     try {
         const response = await fetch(url);
         
-        // Check if the response is okay
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         const data = await response.json();
 
-        // Check if a meal is returned
         if (!data.meals) {
             document.getElementById('meal-list').innerHTML = 'No meals found.';
             return;
         }
 
-        // Display the meal
         displayMeal(data.meals[0]);
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -26,10 +22,9 @@ async function fetchRandomMeal() {
     }
 }
 
-// Function to display the meal
 function displayMeal(meal) {
     const mealList = document.getElementById('meal-list');
-    mealList.innerHTML = ''; // Clear previous results
+    mealList.innerHTML = ''; 
 
     const mealCard = document.createElement('div');
     mealCard.classList.add('meal-card');
@@ -38,7 +33,21 @@ function displayMeal(meal) {
         <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
         <p><strong>Category:</strong> ${meal.strCategory}</p>
         <p><strong>Area:</strong> ${meal.strArea}</p>
-        <a href="${meal.strSource}" target="_blank">Recipe Link</a>
     `;
+    const ingredientsList = document.createElement('ul');
+    ingredientsList.classList.add('ingredients-list');
+
+    for (let i = 1; i <= 20; i++) {
+        const ingredient = meal[`strIngredient${i}`];
+        const measure = meal[`strMeasure${i}`];
+
+        if (ingredient && ingredient.trim() !== '') {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${measure ? measure + ' ' : ''}${ingredient}`;
+            ingredientsList.appendChild(listItem);
+        }
+    }
+    mealCard.appendChild(ingredientsList);
+    
     mealList.appendChild(mealCard);
 }
