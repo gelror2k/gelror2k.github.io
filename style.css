@@ -141,3 +141,20 @@ button#theme-toggle {
         font-size: 1.2rem;
     }
 }
+/* Container to center the image */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0; /* Adds minimal margin to the top and bottom */
+  }
+  
+  /* Style for the image */
+  .circle-image {
+    width: 250px; /* Adjust size */
+    height: 250px; /* Adjust size */
+    border-radius: 150%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image doesn't get distorted */
+  }
+  
+  
